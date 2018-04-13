@@ -1,0 +1,35 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #loginForm="ngForm" (ngSubmit)="editProfile();" autocomplete="off">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Name" name="name" id="name" type="text" required [(ngModel)]="user.name"  clearInput="true"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Department" name="department" id="department" type="text" required [(ngModel)]="user.department"  clearInput="true"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Phone Number(10 digit)" name="phonenumber" id="phonenumber" type="tel" pattern="[789][0-9]{9}" required [(ngModel)]="user.phonenumber" minlength="10" maxlength="10" clearInput="true"></ion-input>
+          </ion-item>
+		 </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Update User </button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

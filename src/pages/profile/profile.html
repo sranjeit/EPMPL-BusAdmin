@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <div class="user_info">
+        <p>
+          <ion-icon name="ionic" item-start></ion-icon>{{ user?.name }}
+        </p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="card">
+        <ul>          
+          <li>Total Students : {{ (students | async)?.length }}</li>
+		  <li>Department : {{ user?.department }}</li>
+          <li>Phone Number : {{ user?.phonenumber }}</li>
+          <li>Email : {{ user?.email }}</li>
+        </ul>
+      </div>
+    </ion-item>
+    <ion-item>
+      <button [navPush]="calendar" type="button" class="btn-blue">Report</button>
+    </ion-item>
+    <ion-item>
+      <button [navPush]="linkEditProfile" type="button" class="btn-grey">Edit Profile</button>
+    </ion-item>
+    <ion-item>
+      <button (click)="logout()" type="button" class="btn-red">Sign Out</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

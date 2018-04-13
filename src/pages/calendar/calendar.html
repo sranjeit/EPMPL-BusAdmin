@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Student Report</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+    <ion-item (click)="openPicker()">
+        <ion-label >Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="selected_date" disabled></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <button ion-button full (click)="reportOfSelcted()">Show Report</button>
+        
+    </ion-item>
+</ion-list>
+        
+</ion-content>

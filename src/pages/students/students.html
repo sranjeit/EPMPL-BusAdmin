@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Students
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+        <button [navPush]="newstudentpage" type="button" class="btn-blue">New Students</button>
+      </ion-item>
+    <ion-item (click)="pushPage(student.student_id)" *ngFor="let student of students | async">
+      <div class="student_card">
+        <p>
+          {{student.name}}
+          <span class="student_class">{{student.class}}</span>
+        </p>
+        <hr>
+        <p>Regist Date :
+          <span class="arrival_time">{{student.add_date}}</span>
+        </p>
+        <p class="parents_form">Parents :
+          <span class="parents_info">{{student.parent_name}} [ {{student.parent_tel}} ]</span>
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

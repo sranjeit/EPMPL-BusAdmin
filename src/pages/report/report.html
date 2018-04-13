@@ -1,0 +1,14 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{selected_date}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let student of students | async">
+            <ion-label>{{student.name}}</ion-label>
+            <ion-checkbox checked="{{checkAttend(student.student_id)}}"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+</ion-content>

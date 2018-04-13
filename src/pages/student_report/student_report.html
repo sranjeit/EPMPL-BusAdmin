@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Student Report</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <div clasee="student_info">
+                <p>
+                    {{ student?.name }}
+                    <span class="student_class">{{ student?.class }}</span>
+                </p>
+                <hr>
+                <p>Regist Date :
+                    <span class="arrival_time">{{ student?.add_date }}</span>
+                </p>
+                <p class="parents_form">Parents :
+                    <span class="parents_info">{{ student?.parent_name }} [ {{ student?.parent_tel }} ]</span>
+                </p>
+            </div>
+        </ion-item>
+        
+        <ion-item *ngFor="let attendance of attendances | async">
+            <ion-label>{{attendance.arrival_date}} {{attendance.arrival_time}}</ion-label>
+            <ion-checkbox checked="true"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+            <button class="btn-grey" (click)="editStudent()">Edit this student</button>
+        </ion-item>
+        
+        <ion-item>
+            <button class="btn-red" (click)="removeStudent()">Remove this student</button>
+        </ion-item>
+    </ion-list>
+</ion-content>
